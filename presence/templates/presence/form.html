@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-xl font-bold mb-4">
+    ✏ Correction du pointage
+</h2>
+
+{% if help_message %}
+<div class="alert alert-warning shadow mb-4">
+    <strong>💡 Action requise :</strong><br>
+    {{ help_message }}f
+</div>
+{% endif %}
+
+{% if selected_date %}
+<div class="mb-4 p-3 bg-base-200 rounded">
+    📅 Date : <b>{{ selected_date }}</b>
+</div>
+{% endif %}
+
+<!-- 🔥 SECTION LOGS EXISTANTS (IMPORTANT UX) -->
+<div class="card bg-base-100 shadow p-4 mb-4">
+
+    <h3 class="font-bold mb-3">📌 Pointages existants</h3>
+
+    {% if logs %}
+        <table class="table w-full">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Heure</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr>
+                    <td>
+                        {% if log.type == "IN" %}
+                            🟢 Entrée
+                        {% else %}
+                            🔴 Sortie
+                        {% endif %}
+                    </td>
+                    <td>{{ log.heure|time:"H:i" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-gray-500">Aucun pointage pour cette date</p>
+    {% endif %}
+
+</div>
+
+<!-- 🔥 FORM AJOUT -->
+<div class="card bg-base-100 shadow p-4">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            {{ form.date }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.type }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.heure }}
+        </div>
+
+        <button class="btn btn-success w-full">
+            💾 Ajouter / Corriger
+        </button>
+
+    </form>
+
+</div>
+
+<!-- 🔙 RETOUR -->
+<div class="mt-4">
+    <a href="{% url 'historique_presence' %}" class="btn btn-primary w-full">
+        ⬅ Retour historique
+    </a>
+</div>
+
+{% endblock %}

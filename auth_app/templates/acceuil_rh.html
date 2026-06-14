@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-2xl font-bold">👨‍💼 Dashboard RH</h1>
+
+<div class="grid grid-cols-3 gap-4 mt-6">
+
+    <a href="{% url 'liste_employes' %}" class="card bg-base-100 p-4 shadow">
+        👥 Gestion Employés
+    </a>
+
+    <a href="{% url 'liste_conges' %}" class="card bg-base-100 p-4 shadow">
+        🏖️ Gestion Congés
+    </a>
+
+    <a href="{% url 'presence' %}" class="card bg-base-100 p-4 shadow">
+        ⏱️ Gestion Présence
+    </a>
+
+</div>
+
+{% endblock %}

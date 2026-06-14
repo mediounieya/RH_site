@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="max-w-lg mx-auto bg-base-100 p-6 rounded-lg shadow space-y-4">
+
+    <h2 class="text-xl font-bold text-center">
+        ✏ Modifier le congé
+    </h2>
+
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+
+        <!-- Dates -->
+        <div>
+            <label class="font-semibold">Date début</label>
+            {{ form.date_debut }}
+        </div>
+
+        <div>
+            <label class="font-semibold">Date fin</label>
+            {{ form.date_fin }}
+        </div>
+
+        <!-- Motif -->
+        <div>
+            <label class="font-semibold">Motif</label>
+            {{ form.motif }}
+        </div>
+
+        <!-- Boutons -->
+        <div class="flex gap-2 justify-end">
+
+            <a href="{% url 'liste_conges' %}" class="btn btn-neutral">
+                Annuler
+            </a>
+
+            <button type="submit" class="btn btn-warning">
+                Modifier
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

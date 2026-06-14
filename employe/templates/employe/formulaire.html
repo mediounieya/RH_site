@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST" class="space-y-4">
+    {% csrf_token %}
+
+    {% if form.errors %}
+        <div class="text-red-500">
+            {{ form.errors }}
+        </div>
+    {% endif %}
+
+    <!-- USER -->
+    <div>
+        <label class="label">Utilisateur</label>
+        {{ form.user }}
+    </div>
+
+    <!-- EMAIL -->
+    <div>
+        <label class="label">Email</label>
+        {{ form.email }}
+    </div>
+
+    <!-- NOM -->
+    <div>
+        <label class="label">Nom</label>
+        {{ form.nom }}
+    </div>
+
+    <!-- POSTE -->
+    <div>
+        <label class="label">Poste</label>
+        {{ form.poste }}
+    </div>
+
+    <!-- SALAIRE -->
+    <div>
+        <label class="label">Salaire</label>
+        {{ form.salaire }}
+    </div>
+
+    <button type="submit" class="btn btn-primary w-full">
+        💾 Ajouter Employé
+    </button>
+</form>
+
+{% endblock %}

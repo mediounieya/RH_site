@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="w-full bg-base-200">
+        <a href="{% url 'ajouter_employe' %}" class="btn btn-primary w-full">
+            ➕ Ajouter un employé
+        </a>
+    </div>
+
+    <div class="space-y-4 w-full mt-4">
+
+        {% for emp in employes %}
+
+            <div class="p-4 bg-base-100 rounded-lg w-full flex justify-between items-center">
+
+                <!-- INFOS EMPLOYÉ -->
+                <div class="space-y-2">
+
+                    <p class="font-bold text-lg">{{ emp.nom }}</p>
+
+                    <p class="badge badge-soft badge-primary">
+                        {{ emp.email }}
+                    </p>
+
+                    <div class="flex gap-2">
+                        <p class="badge badge-soft badge-primary">{{ emp.poste }}</p>
+                        <p class="badge badge-dash badge-primary">{{ emp.salaire }} $</p>
+                    </div>
+
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="space-x-2 flex items-center">
+
+                    <!-- 👁 NOUVEAU : voir présence -->
+                    <a href="{% url 'historique_employe' emp.id %}"
+                       class="btn btn-info btn-sm">
+                        👁 Présence
+                    </a>
+
+                    <a href="{% url 'modifier_employe' emp.id %}"
+                       class="btn btn-primary btn-sm">
+                        Modifier
+                    </a>
+
+                    <a href="{% url 'supprimer_employe' emp.id %}"
+                       class="btn btn-error btn-soft btn-sm">
+                        Supprimer
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

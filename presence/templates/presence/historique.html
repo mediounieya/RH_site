@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-xl font-bold mb-4">
+    📊 Historique Présence de {{ employe.nom }}
+</h2>
+
+<div class="space-y-4">
+
+    <!-- ================= RH ================= -->
+    {% if is_rh_view %}
+
+    <div class="p-4 bg-base-200 rounded shadow">
+
+        <h3 class="font-bold mb-2">👨‍💼 Choisir un employé</h3>
+
+        <div class="flex flex-wrap gap-2">
+
+            {% for e in all_employes %}  {# 🔥 CORRIGÉ #}
+                <a href="{% url 'historique_employe' e.id %}"
+                   class="btn btn-sm btn-outline">
+                    {{ e.nom }}
+                </a>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+    <!-- ================= BOUTON RETOUR ================= -->
+
+    {% if is_rh_view %}
+
+        <a href="{% url 'liste_employes' %}" class="btn btn-primary w-full">
+            ⬅ Retour liste employés
+        </a>
+
+    {% else %}
+
+        <a href="{% url 'presence' %}" class="btn btn-primary w-full">
+            ⬅ Retour au pointage
+        </a>
+
+    {% endif %}
+
+    <!-- ================= HISTORIQUE ================= -->
+
+    <div class="space-y-4">
+
+    {% for item in historique %}
+
+        <div class="collapse collapse-arrow bg-base-100 shadow border">
+            <input type="checkbox" />
+
+            <!-- HEADER -->
+            <div class="collapse-title flex justify-between items-center">
+
+                <span class="font-bold">
+                    📅 {{ item.date|date:"Y-m-d" }}
+                </span>
+
+                {% if item.incomplete %}
+                    <span class="badge badge-warning">⚠ Incomplet</span>
+                {% else %}
+                    <span class="badge badge-success">✔ OK</span>
+                {% endif %}
+
+            </div>
+
+            <!-- CONTENT -->
+            <div class="collapse-content">
+
+                {% for c in item.cycles %}
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm mb-2">
+
+                    <div>
+                        <span class="font-bold">🟢 Entrée :</span><br>
+                        {% if c.entree %}
+                            {{ c.entree|time:"H:i" }}
+                        {% else %}
+                            <span class="text-red-500">--</span>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        <span class="font-bold">🔴 Sortie :</span><br>
+                        {% if c.sortie %}
+                            {{ c.sortie|time:"H:i" }}
+                        {% else %}
+                            <span class="text-orange-500">--</span>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+                <hr class="my-2">
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <div class="text-gray-400 text-center p-4">
+            Aucun pointage trouvé
+        </div>
+
+    {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

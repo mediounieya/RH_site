@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="w-full bg-base-200 rounded-lg mb-4">
+    <a href="{% url 'demander_conge' %}" class="btn btn-success w-full">
+        ➕ Ajouter un congé
+    </a>
+</div>
+
+<!-- Liste -->
+<div class="space-y-4 w-full">
+
+    {% for c in conges %}
+
+    <div class="p-4 bg-base-100 rounded-lg w-full flex justify-between items-center shadow">
+
+        <!-- Infos -->
+        <div class="space-y-2">
+
+            <!-- =========================
+                 RH VIEW
+            ========================== -->
+            {% if request.user.groups.all.0.name == "RH" %}
+
+                <p class="font-bold text-lg">
+                    👤 {{ c.employe.nom }}
+                </p>
+
+                <p class="badge badge-soft badge-primary">
+                    {{ c.employe.user.email }}
+                </p>
+
+                <p class="badge badge-soft badge-primary">
+                    📅 {{ c.date_debut }} → {{ c.date_fin }}
+                </p>
+
+            <!-- =========================
+                 EMPLOYÉ VIEW
+            ========================== -->
+            {% else %}
+
+                <p class="font-bold text-lg">
+                    📅 Congé : {{ c.date_debut }} → {{ c.date_fin }}
+                </p>
+
+            {% endif %}
+
+            <!-- STATUT (commun) -->
+            <p class="badge
+                {% if c.statut == 'accepte' %}badge-success
+                {% elif c.statut == 'refuse' %}badge-error
+                {% else %}badge-warning{% endif %}">
+                {{ c.get_statut_display }}
+            </p>
+
+        </div>
+
+        <!-- =========================
+             ACTIONS RH
+        ========================== -->
+        {% if request.user.groups.all.0.name == "RH" %}
+
+            <div class="space-x-2">
+
+                {% if c.statut == "en_attente" %}
+
+                    <a href="{% url 'valider_conge' c.id %}" class="btn btn-success btn-sm">
+                        ✔ Valider
+                    </a>
+
+                    <a href="{% url 'refuser_conge' c.id %}" class="btn btn-error btn-sm">
+                        ✖ Refuser
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        {% else %}
+
+        <!-- =========================
+             ACTIONS EMPLOYÉ
+        ========================== -->
+
+            <div class="space-x-2">
+
+                {% if c.statut == "en_attente" %}
+
+                    <a href="{% url 'modifier_conge' c.id %}" class="btn btn-warning btn-sm">
+                        ✏ Modifier
+                    </a>
+
+                    <a href="{% url 'supprimer_conge' c.id %}" class="btn btn-error btn-sm">
+                        🗑 Supprimer
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+    {% empty %}
+
+        <div class="text-center text-gray-500">
+            Aucun congé trouvé
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

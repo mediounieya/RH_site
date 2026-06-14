@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-xl font-bold mb-4">🕒 Pointage du jour</h2>
+
+<div class="card bg-base-100 shadow p-4 mb-4">
+
+    <h3 class="font-bold mb-3">
+        📌 Aujourd'hui : {{ logs.0.date|default:"Aujourd'hui" }}
+    </h3>
+
+    <table class="table w-full">
+
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Heure</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td>
+                    {% if log.type == "IN" %}
+                        🟢 Entrée
+                    {% else %}
+                        🔴 Sortie
+                    {% endif %}
+                </td>
+                <td>{{ log.heure }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2" class="text-center">
+                    Aucun pointage aujourd'hui
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="space-y-2">
+
+    <!-- ✅ BOUTON ENTREE -->
+    <a href="{% url 'pointer_entree' %}"
+       class="btn btn-success w-full {% if not can_enter %}btn-disabled{% endif %}">
+        🟢 Pointer entrée
+    </a>
+
+    <!-- ✅ BOUTON SORTIE -->
+    <a href="{% url 'pointer_sortie' %}"
+       class="btn btn-error w-full {% if not can_exit %}btn-disabled{% endif %}">
+        🔴 Pointer sortie
+    </a>
+
+    <!-- HISTORIQUE -->
+    <a href="{% url 'historique_presence' %}" class="btn btn-primary w-full">
+        📅 Voir historique
+    </a>
+
+</div>
+
+{% endblock %}

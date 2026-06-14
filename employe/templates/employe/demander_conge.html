@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="w-full bg-base-200 rounded-lg mb-4 p-2 text-center font-bold">
+    Demande de congé
+</div>
+
+<form method="POST" class="space-y-4">
+    {% csrf_token %}
+
+    <!-- ✅ erreurs globales -->
+    {% if form.non_field_errors %}
+        <div class="text-red-500">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
+    <div>
+        {{ form.date_debut.label_tag }}
+        {{ form.date_debut }}
+        <div class="text-red-500">
+            {{ form.date_debut.errors }}
+        </div>
+    </div>
+
+    <div>
+        {{ form.date_fin.label_tag }}
+        {{ form.date_fin }}
+        <div class="text-red-500">
+            {{ form.date_fin.errors }}
+        </div>
+    </div>
+
+    <div>
+        {{ form.motif.label_tag }}
+        {{ form.motif }}
+        <div class="text-red-500">
+            {{ form.motif.errors }}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success w-full">
+        Envoyer la demande
+    </button>
+</form>
+
+{% endblock %}

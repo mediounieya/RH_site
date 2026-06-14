@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="max-w-lg mx-auto bg-base-100 p-6 rounded-lg shadow text-center space-y-4">
+
+    <h2 class="text-xl font-bold text-red-500">
+        ⚠ Confirmation de suppression
+    </h2>
+
+    <p>
+        Es-tu sûr de vouloir supprimer ce congé ?
+    </p>
+
+    <div class="bg-base-200 p-3 rounded">
+        <p><strong>Employé :</strong> {{ conge.employe.nom }}</p>
+        <p><strong>Période :</strong> {{ conge.date_debut }} → {{ conge.date_fin }}</p>
+        <p><strong>Statut :</strong> {{ conge.get_statut_display }}</p>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="flex gap-2 justify-center">
+
+            <a href="{% url 'liste_conges' %}" class="btn btn-neutral">
+                Annuler
+            </a>
+
+            <button type="submit" class="btn btn-error">
+                Oui, supprimer
+            </button>
+
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}
