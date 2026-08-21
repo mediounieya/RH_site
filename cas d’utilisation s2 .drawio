@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="iI3-pFfgOodIfHlc1o8x">
-    <mxGraphModel dx="2217" dy="775" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1000" math="0" shadow="0" adaptiveColors="auto">
+    <mxGraphModel dx="1433" dy="775" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1000" math="0" shadow="0" adaptiveColors="auto">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -143,13 +143,13 @@
         <mxCell id="FuxqbPJdlxhvWtKHFC8e-38" parent="sys" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-family: &amp;quot;Trebuchet MS&amp;quot;, Verdana, Arial, sans-serif; font-size: 16px;&quot;&gt;Consulter le dashboard RH&lt;/span&gt;" vertex="1">
           <mxGeometry height="60" width="220" x="62" y="128" as="geometry" />
         </mxCell>
-        <mxCell id="FuxqbPJdlxhvWtKHFC8e-39" parent="sys" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-family: &amp;quot;Trebuchet MS&amp;quot;, Verdana, Arial, sans-serif; font-size: 16px;&quot;&gt;Consulter le dashboard RH&lt;/span&gt;" vertex="1">
+        <mxCell id="FuxqbPJdlxhvWtKHFC8e-39" parent="sys" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-family: &amp;quot;Trebuchet MS&amp;quot;, Verdana, Arial, sans-serif; font-size: 16px;&quot;&gt;Analyser le taux d&#39;absentéisme&lt;/span&gt;" vertex="1">
           <mxGeometry height="60" width="220" x="112" y="203" as="geometry" />
         </mxCell>
-        <mxCell id="FuxqbPJdlxhvWtKHFC8e-40" parent="sys" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-family: &amp;quot;Trebuchet MS&amp;quot;, Verdana, Arial, sans-serif; font-size: 16px;&quot;&gt;Consulter le dashboard RH&lt;/span&gt;" vertex="1">
+        <mxCell id="FuxqbPJdlxhvWtKHFC8e-40" parent="sys" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-family: &amp;quot;Trebuchet MS&amp;quot;, Verdana, Arial, sans-serif; font-size: 16px;&quot;&gt;Consulter les indicateurs RH&lt;/span&gt;" vertex="1">
           <mxGeometry height="60" width="220" x="78" y="316" as="geometry" />
         </mxCell>
-        <mxCell id="FuxqbPJdlxhvWtKHFC8e-42" parent="sys" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-family: &amp;quot;Trebuchet MS&amp;quot;, Verdana, Arial, sans-serif; font-size: 16px;&quot;&gt;Consulter le dashboard RH&lt;/span&gt;" vertex="1">
+        <mxCell id="FuxqbPJdlxhvWtKHFC8e-42" parent="sys" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;span style=&quot;color: rgb(51, 51, 51); font-family: &amp;quot;Trebuchet MS&amp;quot;, Verdana, Arial, sans-serif; font-size: 16px;&quot;&gt;Suivre les effectifs&lt;/span&gt;" vertex="1">
           <mxGeometry height="60" width="220" x="316" y="274" as="geometry" />
         </mxCell>
         <mxCell id="FuxqbPJdlxhvWtKHFC8e-48" edge="1" parent="sys" source="FuxqbPJdlxhvWtKHFC8e-38" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.447;entryY=0.042;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="wNE3t8SYB9BgjoJD8imf-17" value="Include">
@@ -244,7 +244,7 @@
             <mxPoint x="361" y="566" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wNE3t8SYB9BgjoJD8imf-67" edge="1" parent="1" source="wNE3t8SYB9BgjoJD8imf-11" style="html=1;endArrow=none;strokeColor=#333333;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.056;entryY=0.399;entryDx=0;entryDy=0;entryPerimeter=0;" target="wNE3t8SYB9BgjoJD8imf-66">
+        <mxCell id="wNE3t8SYB9BgjoJD8imf-67" edge="1" parent="1" source="wNE3t8SYB9BgjoJD8imf-11" style="html=1;endArrow=none;strokeColor=#333333;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="wNE3t8SYB9BgjoJD8imf-66">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="322" y="573" as="sourcePoint" />
             <mxPoint x="542" y="732" as="targetPoint" />
